@@ -46,6 +46,7 @@ public class Util {
         return httpClient().execute(new HttpGet(URL));
     }
 
+    @Bean
     public void printNasaInfo() throws IOException {
         System.out.println(mappedNASA());
     }
