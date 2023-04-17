@@ -27,7 +27,7 @@ public class NASA {
     private String media_type;
     @Column(name = "service_version", length = 2048)
     private String service_version;
-    @Column(name = "title", length = 2048)
+    @Column(name = "title", unique = true, length = 2048)
     private String title;
     @Column(name = "url", length = 2048)
     private String url;

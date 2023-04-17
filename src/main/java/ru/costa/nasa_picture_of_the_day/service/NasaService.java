@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class NasaService {
-    private NasaRepository repository;
+    private final NasaRepository repository;
 
     @Autowired
     public NasaService(NasaRepository repository) {
@@ -20,5 +20,8 @@ public class NasaService {
     }
     public void save(NASA nasa) {
         repository.save(nasa);
+    }
+    public boolean existsByTitle(String title) {
+        return repository.existsByTitle(title);
     }
 }
