@@ -45,9 +45,7 @@ public class Util {
     }
 
     public CloseableHttpResponse httpResponse() throws IOException {
-        try(CloseableHttpResponse response = httpClient().execute(new HttpGet(URL))) {
-        return response;
-        }
+        return httpClient().execute(new HttpGet(URL));
     }
 
     public void printNasaInfo() throws IOException {
