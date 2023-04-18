@@ -21,7 +21,7 @@ import java.util.List;
 @Component
 public class Util {
     private static final String URL = "https://api.nasa.gov/planetary/apod?api_key=K4WzXwpgu7KcXA8MNsq2q35K2KODztG4J73ZZkNR";
-    private static final String FILE_PATH = "C:\\Users\\costa\\Desktop\\NASA\\";
+    private static final String FILE_PATH = "C:\\Users\\costa\\Desktop\\NASA\\PHOTO_OF_THE_DAY\\";
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private final NasaService nasaService;
 
