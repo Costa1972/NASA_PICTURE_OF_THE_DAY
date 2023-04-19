@@ -89,7 +89,7 @@ public class Util {
 
     @Bean
     public void writeFromDBToFile() {
-        try (FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\costa\\Desktop\\NASA\\log.txt", false)) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\costa\\Desktop\\NASA\\PHOTO_OF_THE_DAY\\log.txt", false)) {
             List<NASA> nasaList = nasaService.get();
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             new FileWriter("C:\\Users\\costa\\Desktop\\NASA\\log.txt", false).close();
