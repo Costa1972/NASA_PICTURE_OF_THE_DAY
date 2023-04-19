@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ru.costa.nasa_picture_of_the_day.NasaPictureOfTheDayApplicat
+ ion
+
