@@ -2,6 +2,8 @@ package ru.costa.nasa_picture_of_the_day;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -52,7 +54,7 @@ public class Util {
     }
 
     public NASA mappedNASA() throws IOException {
-        try (CloseableHttpResponse response = httpResponse()){
+        try (CloseableHttpResponse response = httpResponse()) {
             return MAPPER.readValue(response.getEntity().getContent(), NASA.class);
         }
     }
@@ -73,8 +75,13 @@ public class Util {
                 .orElse(null);
     }
 
+
     public HttpEntity getEntity() throws IOException {
-        return httpClient().execute(new HttpGet(mappedNASA().getHdurl())).getEntity();
+        HttpResponse response = httpClient().execute(new HttpGet(mappedNASA().getHdurl()));
+        int statusCode = response.getStatusLine().getStatusCode();
+        System.out.println(statusCode);
+        return  statusCode == HttpStatus.SC_OK ? httpClient().execute(new HttpGet(mappedNASA().getHdurl())).getEntity() :
+                httpClient().execute(new HttpGet(mappedNASA().getUrl())).getEntity();
     }
 
 
